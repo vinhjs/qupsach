@@ -1,11 +1,18 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { render } from 'react-dom'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import { Router, Route, browserHistory } from 'react-router'
+import BookList from './containers/BookList'
+import reducer from './reducers'
 
-const rootEl = document.getElementById('root')
+const store = createStore(reducer)
 
-const render = () => ReactDOM.render(
-  <a href="http://chatbot.vn">ChatbotVN</a>,
-  rootEl
+render(
+  <Provider store={store}>
+    <Router history={browserHistory}>
+      <Route path="/books" component={BookList} />
+    </Router>
+  </Provider>,
+  document.getElementById('root')
 )
-
-render()
