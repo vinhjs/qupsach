@@ -1,12 +1,31 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import {
+    Table
+} from 'react-bootstrap';
 
 export default class Posts extends Component {
   render() {
     return (
-      <ul>
-        {this.props.posts.map((post, i) => <li key={i}>{post.title}</li>)}
-      </ul>
+      <Table striped bordered condensed hover>
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>Des</th>
+          </tr>
+        </thead>
+        <tbody>
+          {this.props.posts.map((post, i) => 
+            <tr> 
+              <td> {i+1}
+              </td>
+              <td>
+                {post.title}
+              </td>
+            </tr>
+          )}
+        </tbody>
+      </Table>
     )
   }
 }

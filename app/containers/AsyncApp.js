@@ -8,6 +8,9 @@ import {
 } from '../actions/actions'
 import Picker from '../components/Picker'
 import Posts from '../components/Posts'
+import {
+    PageHeader
+} from 'react-bootstrap';
 
 class AsyncApp extends Component {
   constructor(props) {
@@ -45,6 +48,7 @@ class AsyncApp extends Component {
     const { selectedSubreddit, posts, isFetching, lastUpdated } = this.props
     return (
       <div>
+        <PageHeader style={headerStyle}>Example page header <small>Subtext for header</small></PageHeader>
         <Picker
           value={selectedSubreddit}
           onChange={this.handleChange}
@@ -71,7 +75,10 @@ class AsyncApp extends Component {
     )
   }
 }
-
+const headerStyle = {
+  marginTop: 0,
+  padingTop: 0
+};
 AsyncApp.propTypes = {
   selectedSubreddit: PropTypes.string.isRequired,
   posts: PropTypes.array.isRequired,
