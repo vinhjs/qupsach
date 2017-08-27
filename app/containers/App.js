@@ -8,6 +8,7 @@ import {
 } from '../actions/actions'
 import Header from '../components/Header'
 import Picker from '../components/Picker'
+import Main from '../components/Main'
 import Posts from '../components/Posts'
 import {
     PageHeader
@@ -33,6 +34,7 @@ class App extends Component {
     return (
       <div style={mainStyle}>
         <Header/>
+        <Main/>
       </div>
     )
   }
